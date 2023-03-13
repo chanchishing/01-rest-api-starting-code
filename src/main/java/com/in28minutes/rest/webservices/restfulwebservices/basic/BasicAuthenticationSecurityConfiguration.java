@@ -13,7 +13,7 @@ public class BasicAuthenticationSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
 
-        //authorization is required for any request, except OPTIONS request
+        //authorization is required for any request, except OPTIONS (pre-flight)request
         //use basic authentication
         //stateless session
         //disable CSRF
