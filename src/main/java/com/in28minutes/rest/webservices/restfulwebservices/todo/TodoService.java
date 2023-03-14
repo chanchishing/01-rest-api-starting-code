@@ -15,11 +15,11 @@ public class TodoService {
 	
 	static {
 		todos.add(new Todo(++todosCount, "in28minutes","Get AWS Certified",
-							LocalDate.now().plusYears(10), false ));
+							LocalDate.now().plusYears(10), false,1 ));
 		todos.add(new Todo(++todosCount, "in28minutes","Learn DevOps",
-				LocalDate.now().plusYears(11), false ));
+				LocalDate.now().plusYears(11), false,1 ));
 		todos.add(new Todo(++todosCount, "in28minutes","Learn Full Stack Development",
-				LocalDate.now().plusYears(12), false ));
+				LocalDate.now().plusYears(12), false,1 ));
 	}
 	
 	public List<Todo> findByUsername(String username){
@@ -29,7 +29,7 @@ public class TodoService {
 	}
 	
 	public Todo addTodo(String username, String description, LocalDate targetDate, boolean done) {
-		Todo todo = new Todo(++todosCount,username,description,targetDate,done);
+		Todo todo = new Todo(++todosCount,username,description,targetDate,done,1);
 		todos.add(todo);
 		return todo;
 	}

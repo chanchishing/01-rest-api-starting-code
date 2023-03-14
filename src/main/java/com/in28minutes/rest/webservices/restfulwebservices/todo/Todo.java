@@ -13,14 +13,14 @@ public class Todo {
 		
 	}
 	
-	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.description = description;
-		this.targetDate = targetDate;
-		this.done = done;
-	}
+//	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
+//		super();
+//		this.id = id;
+//		this.username = username;
+//		this.description = description;
+//		this.targetDate = targetDate;
+//		this.done = done;
+//	}
 
 	public Todo(int id, String username, String description, LocalDate targetDate, boolean done, int version) {
 		this.id = id;
@@ -82,6 +82,14 @@ public class Todo {
 
 	public void setDone(boolean done) {
 		this.done = done;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override
