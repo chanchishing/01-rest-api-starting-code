@@ -24,21 +24,21 @@ public class TodoJpaResource {
     }
 
     @GetMapping("/users/{username}/todos/{id}")
-    public Todo retrieveTodo(@PathVariable String username,@PathVariable int id)
+    public Todo retrieveTodo(@PathVariable String username,@PathVariable Integer id)
     {
 //        return todoService.findById(id);
         return todoRepository.findById(id).get();
     }
 
     @DeleteMapping("/users/{username}/todos/{id}")
-    public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable int id){
+    public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable Integer id){
 //        todoService.deleteById(id);
         todoRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/users/{username}/todos/{id}")
-    public Todo updateTodo(@PathVariable String username, @PathVariable int id, @RequestBody Todo todo){
+    public Todo updateTodo(@PathVariable String username, @PathVariable Integer id, @RequestBody Todo todo){
 //        todoService.updateTodo(todo);
         todoRepository.save(todo);
         return todo;
@@ -46,8 +46,12 @@ public class TodoJpaResource {
 
     @PostMapping("/users/{username}/todos")
     public Todo createTodo(@PathVariable String username, @RequestBody Todo todo){
-        Todo createdToDo=todoService.addTodo(username,todo.getDescription(),todo.getTargetDate(),todo.isDone());
-        return createdToDo;
+        todo.setUsername(username);
+        todo.setId(null);
+        return todoRepository.save(todo);
+
+//        Todo createdToDo=todoService.addTodo(username,todo.getDescription(),todo.getTargetDate(),todo.isDone());
+//        return createdToDo;
     }
 
 
